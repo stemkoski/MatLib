@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: FRACLIB</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: FRACLIB</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>FRACLIB</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Library for exact calculuations with fractional/rational numbers.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="FRACLIB.Fraction.html">Fraction</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".addFractions"><span class="type-signature">(static) </span>addFractions<span class="signature">(fractionA, fractionB)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Calculate the sum of two Fraction objects.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">first fraction</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionB</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">second fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the sum: fractionA + fractionB
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);  // a equals 1/2let b = new FRACLIB.Fraction(1, 3);  // b equals 1/3let c = FRACLIB.addFractions(a, b);  // c equals 5/6</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".divFractions"><span class="type-signature">(static) </span>divFractions<span class="signature">(fractionA, fractionB)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Calculate the quotient of two Fraction objects.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">first fraction</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionB</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">second fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line206">line 206</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the quotient: fractionA / fractionB
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);  // a equals 1/2let b = new FRACLIB.Fraction(1, 3);  // b equals 1/3let c = FRACLIB.divFractions(a, b);  // c equals 3/2</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".multFractions"><span class="type-signature">(static) </span>multFractions<span class="signature">(fractionA, fractionB)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Calculate the product of two Fraction objects.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">first fraction</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionB</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">second fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line190">line 190</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the product: fractionA * fractionB
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);   // a equals 1/2let b = new FRACLIB.Fraction(1, 3);   // b equals 1/3let c = FRACLIB.multFractions(a, b);  // c equals 1/6</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".subFractions"><span class="type-signature">(static) </span>subFractions<span class="signature">(fractionA, fractionB)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Calculate the difference of two Fraction objects.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">first fraction</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fractionB</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">second fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line174">line 174</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the difference: fractionA - fractionB
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);  // a equals 1/2let b = new FRACLIB.Fraction(1, 3);  // b equals 1/3let c = FRACLIB.subFractions(a, b);  // c equals 1/6</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a></li><li><a href="MATLIB.html">MATLIB</a></li></ul><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a></li><li><a href="MATLIB.Matrix.html">Matrix</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 14:39:03 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

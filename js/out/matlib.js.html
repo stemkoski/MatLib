@@ -1,11 +1,39 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: matlib.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: matlib.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Library for exact calculuations with fractional/rational numbers.
  * @namespace
  */
 var FRACLIB = {};
 
 /**
- * A Fraction object represents a rational number. It has an integer numerator and (nonzero) integer denominator.
+ * A Fraction object represents a rational number. It has a numerator and (nonzero) denominator.
  * Supported operations: addition, subtraction, multiplication, division, negation, inversion.
  * Fractions are always reduced to lowest terms.
  * @class
@@ -53,7 +81,7 @@ FRACLIB.Fraction = class
 
     equals(otherFraction)
     {
-        return (this.numerator == otherFraction.numerator) && (this.denominator == otherFraction.denominator);
+        return (this.numerator == otherFraction.numerator) &amp;&amp; (this.denominator == otherFraction.denominator);
     }
 
     /**
@@ -76,7 +104,7 @@ FRACLIB.Fraction = class
         this.denominator /= gcd;
 
         // no negative numbers in denominator
-        if (this.denominator < 0)
+        if (this.denominator &lt; 0)
         {
             this.numerator *= -1;
             this.denominator *= -1;
@@ -267,14 +295,14 @@ MATLIB.Matrix = class
     // let M = new MATLIB.Matrix( [ [3,1,4] , [2,5,6] ] );
     constructor(parameter1, parameter2)
     {
-        if ((typeof parameter1) == "number" && (typeof parameter2) == "number")
+        if ((typeof parameter1) == "number" &amp;&amp; (typeof parameter2) == "number")
         {
             this.numberRows    = parameter1;
             this.numberColumns = parameter2;
             this.setupValueArray();
             this.fill( new FRACLIB.Fraction(0) );
         }
-        else if (parameter1 instanceof Array && parameter1[0] instanceof Array)
+        else if (parameter1 instanceof Array &amp;&amp; parameter1[0] instanceof Array)
         {
             this.numberRows    = parameter1.length;
             this.numberColumns = parameter1[0].length;
@@ -290,7 +318,7 @@ MATLIB.Matrix = class
     setupValueArray()
     {
         this.values = [];
-        for (let i = 0; i < this.numberRows; i++)
+        for (let i = 0; i &lt; this.numberRows; i++)
         {
             let row = new Array(this.numberColumns);
             this.values.push( row );
@@ -304,8 +332,8 @@ MATLIB.Matrix = class
      */
     fill( fractionValue )
     {
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
-            for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
+            for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
                 this.values[rowIndex][columnIndex] = fractionValue; 
                 // use clone to avoid shared reference (logical error)
 
@@ -315,8 +343,8 @@ MATLIB.Matrix = class
     // TODO: redo as valueString.   "setAllValues?"
     setValues( valueArray )
     {
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
-            for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
+            for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
                 this.values[rowIndex][columnIndex] = valueArray[rowIndex][columnIndex];
 
         return this;
@@ -326,8 +354,8 @@ MATLIB.Matrix = class
     // assumes this matrix and other matrix have same dimensions
     copy(other)
     {
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
-            for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
+            for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
                 this.values[rowIndex][columnIndex] = other.values[rowIndex][columnIndex].clone(); 
                 // use clone to avoid shared reference (logical error)
 
@@ -346,8 +374,8 @@ MATLIB.Matrix = class
     getMaxStringLength() 
     {
         let max = 0;
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
-            for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
+            for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
                 if (this.values[rowIndex][columnIndex].toString().length > max)
                     max = this.values[rowIndex][columnIndex].toString().length;
         return max;
@@ -357,7 +385,7 @@ MATLIB.Matrix = class
     {
         let string = "";
         let padAmount = this.getMaxStringLength();
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
         {
             let row = this.values[rowIndex];
             string += MATLIB.arrayToString( row, padAmount );
@@ -376,8 +404,8 @@ MATLIB.Matrix = class
      */
     setValuesRandomFrac(minNumerator = 0, maxNumerator = 10, minDenominator=1, maxDenominator=4)
     {
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
-            for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
+            for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
             {
                 let numerator = Math.floor( minNumerator + (maxNumerator - minNumerator) * Math.random() );
                 let denominator = Math.floor( minDenominator + (maxDenominator - minDenominator) * Math.random() );
@@ -425,7 +453,7 @@ MATLIB.Matrix = class
     {
         let row = [];
 
-        for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
             row.push( this.getRowColumnValue(rowIndex, columnIndex) );
 
         return row;
@@ -433,7 +461,7 @@ MATLIB.Matrix = class
 
     setRow( rowIndex, valuesArray )
     {
-        for (let columnIndex = 0; columnIndex < this.numberColumns; columnIndex++)
+        for (let columnIndex = 0; columnIndex &lt; this.numberColumns; columnIndex++)
             this.setRowColumnValue( rowIndex, columnIndex, valuesArray[columnIndex] );
 
         return this;        
@@ -443,7 +471,7 @@ MATLIB.Matrix = class
     {
         let column = [];
 
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
             column.push( this.getRowColumnValue(rowIndex, columnIndex) );
 
         return column;
@@ -451,7 +479,7 @@ MATLIB.Matrix = class
 
     setColumn( columnIndex, valuesArray )
     {
-        for (let rowIndex = 0; rowIndex < this.numberRows; rowIndex++)
+        for (let rowIndex = 0; rowIndex &lt; this.numberRows; rowIndex++)
             this.setRowColumnValue( rowIndex, columnIndex, valuesArray[rowIndex] );
 
         return this;        
@@ -472,7 +500,7 @@ MATLIB.Matrix = class
     {
         let row = this.getRow(rowIndex);
 
-        for (let i = 0; i < row.length; i++)
+        for (let i = 0; i &lt; row.length; i++)
             row[i] *= scalar;
 
         this.setRow(rowIndex, row);
@@ -486,7 +514,7 @@ MATLIB.Matrix = class
         let shearedRow = this.getRow(shearedRowIndex);
         let shearingRow = this.getRow(shearingRowIndex);
 
-        for (let i = 0; i < shearedRow.length; i++)
+        for (let i = 0; i &lt; shearedRow.length; i++)
             shearedRow[i] += scalar * shearingRow[i];
 
         this.setRow(shearedRowIndex, shearedRow);
@@ -503,7 +531,7 @@ MATLIB.Matrix = class
 //   adds leading spaces until this length is attained
 MATLIB.padString = function(string, paddedLength=0)
 {
-    while (string.length < paddedLength)
+    while (string.length &lt; paddedLength)
         string = " " + string;
 
     return string;
@@ -513,10 +541,10 @@ MATLIB.padString = function(string, paddedLength=0)
 MATLIB.arrayToString = function(array, paddedLength=3, separator=" ")
 {
     let string = "[";
-    for (let index = 0; index < array.length; index++)
+    for (let index = 0; index &lt; array.length; index++)
     {
         string += MATLIB.padString(array[index].toString(), paddedLength);
-        if (index < array.length - 1)
+        if (index &lt; array.length - 1)
             string += separator;
     }
     string += "]";
@@ -528,7 +556,7 @@ MATLIB.arrayToString = function(array, paddedLength=3, separator=" ")
 MATLIB.objectArrayToString = function(array)
 {
     let string = "";
-    for (let index = 0; index < array.length; index++)
+    for (let index = 0; index &lt; array.length; index++)
     {
         string += array[index].toString();
         string += "\n";
@@ -539,7 +567,7 @@ MATLIB.objectArrayToString = function(array)
 // return -1 if all array values are zero (i.e. index does not exist; all values are zero)
 MATLIB.firstNonzeroIndex = function( array )
 {
-    for (let index = 0; index < array.length; index++)
+    for (let index = 0; index &lt; array.length; index++)
     {
         if (array[index] != 0)
         {
@@ -559,7 +587,7 @@ MATLIB.nonzeroValues = function( array )
 {
     let nonzeroArray = [];
 
-    for (let index = 0; index < array.length; index++)
+    for (let index = 0; index &lt; array.length; index++)
         if (array[index] != 0)
             nonzeroArray.push( array[index] );
 
@@ -571,7 +599,7 @@ MATLIB.absoluteValues = function( array )
 {
     let absoluteArray = [];
 
-    for (let index = 0; index < array.length; index++)
+    for (let index = 0; index &lt; array.length; index++)
         absoluteArray.push( Math.abs( array[index] ) );
 
     return absoluteArray;
@@ -658,7 +686,7 @@ MATLIB.rref = function( M )
         
         // TODO: FIX ME -- what if leadingCoeff is == 0?
 
-        if (leadingCoeff < 0)
+        if (leadingCoeff &lt; 0)
         {
             leadingCoeff *= -1;
             M.scaleRow( currentRowIndex, -1 );
@@ -667,7 +695,7 @@ MATLIB.rref = function( M )
         if (leadingCoeff == 0)
         {
             let nonZeroRowIndex = -1;
-            for (let i = currentRowIndex + 1; i < M.numberRows; i++)
+            for (let i = currentRowIndex + 1; i &lt; M.numberRows; i++)
             {
                 leadingCoeff = M.getRowColumnValue( currentRowIndex, currentColumnIndex );
                 if (leadingCoeff != 0)
@@ -690,7 +718,7 @@ MATLIB.rref = function( M )
             }
         }
 
-        for (let rowIndex = 0; rowIndex < M.numberRows; rowIndex++ )
+        for (let rowIndex = 0; rowIndex &lt; M.numberRows; rowIndex++ )
         {
             console.log( "I'm working on scaling row " + rowIndex )
             if (rowIndex == currentRowIndex)
@@ -716,7 +744,7 @@ MATLIB.rref = function( M )
         resultsArray.push( "scaled rows:" );
         resultsArray.push( M.clone() );
 
-        for (let rowIndex = 0; rowIndex < M.numberRows; rowIndex++ )
+        for (let rowIndex = 0; rowIndex &lt; M.numberRows; rowIndex++ )
         {
             console.log("I'm shearing row " + rowIndex)
             if (rowIndex == currentRowIndex)
@@ -736,7 +764,7 @@ MATLIB.rref = function( M )
         resultsArray.push( "sheared rows:" );
         resultsArray.push( M.clone() );
 
-        for (let rowIndex = 0; rowIndex < M.numberRows; rowIndex++ )
+        for (let rowIndex = 0; rowIndex &lt; M.numberRows; rowIndex++ )
         {
             let row = M.getRow(rowIndex);
             console.log("I'm reducing row " + rowIndex)
@@ -771,3 +799,26 @@ MATLIB.rref = function( M )
 }
 
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a></li><li><a href="MATLIB.html">MATLIB</a></li></ul><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a></li><li><a href="MATLIB.Matrix.html">Matrix</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 14:39:03 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
