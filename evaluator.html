@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Evaluator</title>
+	<link rel="stylesheet" href="js/jquery-ui.min.css">
+	<script src="js/external/jquery/jquery.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+    <script src="js/matlib.js"></script>
+    
+</head>
+
+<style>
+body
+{
+   padding: 16px;
+   background-color: #F8F8FF;
+}
+
+.border
+{
+   border: 1px solid black;
+   padding: 16px;
+   min-height: 16px;
+}
+
+input, textarea, .outputArea
+{
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bold;
+    font-size: 20px;
+    width: 98%;
+    padding: 10px;
+}
+
+.outputArea
+{    
+    overflow-y: scroll;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.rowStyle
+{
+    display: inline-flex;
+    width: 100%;
+}
+
+.leftStyle
+{
+    padding: 4px 12px 4px 4px;
+}
+
+.rightStyle
+{
+    width: 100%; /* use remaining width in flex box */
+    padding: 4px 4px 4px 12px;
+}
+
+.inStyle 
+{
+    color: #000088;
+}
+
+.inputStyle
+{
+    color: #000000;
+    border: 1px solid #888888;
+    background-color: #EEEEEE;
+}
+
+.outStyle 
+{
+    color: #006600;
+}
+
+.outputStyle
+{
+    font-style: italic;
+    color: #000000
+}
+
+.errorStyle
+{
+    font-style: italic;
+    color: #880000;
+    background-color: #FFEEEE;
+}
+
+</style>
+
+<body>
+
+<p> Code </p>
+
+<!-- First, set up elements in HTML, then configure with Javascript -->
+
+<textarea id="textInput">1 + 2 * 3</textarea>
+
+<br><br>
+<button id="runButton">Run Code</button>
+
+<button id="testButton">Test MATLIB</button>
+
+<button id="testButton2">Test FRACLIB</button>
+
+<p> Results </p>
+
+<div id="textOutput" class="outputArea" style="height: 600px;" value=" ">
+[results will appear here]
+</div>
+
+<script>
+
+// text input ---------------------------------------------------
+
+let textInput  = $( "#textInput" );
+let runButton  = $( "#runButton" ); 
+let testButton  = $( "#testButton" ); 
+let testButton2  = $( "#testButton2" ); 
+let textOutput = $( "#textOutput" );
+
+// apply formatting
+runButton.button();
+testButton.button();
+testButton2.button();
+
+// use this namespace for declaring variables:
+var Var = {};
+
+// TODO: store results of previous inputs and outputs
+// var In = {};
+// var Out = {};
+
+var ioNumber = 0;
+
+function processInput()
+{
+    let inputTotal = textInput.val();
+
+    let inputArray = inputTotal.split(";");
+
+    try 
+    {
+        for (let i = 0; i < inputArray.length; i++)
+        {
+            let input = inputArray[i].trim();
+            
+            // skip over empty input lines
+            if (input.length == 0)
+                continue;
+
+            // if this is the first input, then blank out any existing text present
+            if (ioNumber == 0)
+                textOutput.html("<br>")
+
+            ioNumber++;
+
+            // insert new lines 
+
+            textOutput.append( `
+                <div class="rowStyle">
+                    <div class='inStyle leftStyle'><nobr> In [${ioNumber}]: </nobr></div>
+                    <div class='inputStyle rightStyle'> ${input} </div>
+                </div>
+                <div style="height:8px"></div> ` );
+
+            // evaluating input may trigger an exception
+            let output = eval( input );
+            // handle newlines and spaces nicely with HTML
+            output = output.toString().replaceAll("\n", "<br>");
+            output = output.toString().replaceAll(" ", "&nbsp;");
+            textOutput.append( `
+                <div class="rowStyle">
+                    <div class='outStyle leftStyle'><nobr> Out[${ioNumber}]: </nobr></div>
+                    <div class='outputStyle rightStyle'> ${output} </div>
+                </div>
+                <div style="height:16px"></div> ` );
+        }   
+
+        // clear input area when finished
+        textInput.val(" ");
+    }
+    catch (exception) 
+    {
+        console.error(exception)
+
+        let error = exception.message;
+        textOutput.append( `
+            <div class="rowStyle">
+                <div class='errorStyle rightStyle'> ${error} </div>
+            </div>
+            <div style="height:16px"></div> ` );
+    }
+
+    // scroll to bottom of text area.
+    // pure JS; jQuery objects mess this up somehow.
+    let to = document.getElementById("textOutput");
+    to.scrollTop = to.scrollHeight;
+}
+
+
+textInput.on("keydown",
+    function(event)
+    {
+        if (event.key == "Enter")
+            processInput();
+    }
+);
+
+// apply functionality
+runButton.on( "click", processInput );
+
+// test matrix library
+testButton.on( "click", function()
+{
+    textInput.val(`
+
+    Var.M = new MATLIB.Matrix(3,4).setValuesRandom();
+    Var.A = Var.M;
+    Var.B = Var.M.clone();   
+    Var.M.setRowColumnValue(0,0,88);
+    Var.A;
+    Var.B; 
+    MATLIB.indexStart1;
+    Var.M;
+    Var.M.getRow(0);
+    Var.M.getColumn(2);
+    Var.M.setRow(0, [5,3,3,7]);
+    Var.M.setColumn(2, [4,5,6]);Var.x = 337; Var.x + 1;
+    Var.M.swapRows(0, 2);
+    Var.M.scaleRow(1, 2);
+    Var.M.shearRow(1, 2, -2);
+
+    Var.N = new MATLIB.Matrix(3,5).setValuesRandom(-10,10);
+    Var.P = new MATLIB.Matrix(2,5).setValuesRandom(0,1000);
+
+    MATLIB.objectArrayToString( [ Var.M, Var.N, "Can Insert Comments", Var.P ] );
+
+    MATLIB.firstNonzeroIndex( [0,0,-17,0,42] );
+    MATLIB.nonzeroValues( [0,0,-17,0,42] );
+    MATLIB.absoluteValues( [0,0,-17,0,42] );
+
+    MATLIB.gcd( 12, 15 );
+    MATLIB.lcm( 12, 15 );
+    MATLIB.gcdArray( [36, 60, 12] );
+    MATLIB.lcmArray( [36, 60, 12] );
+
+    Var.M = new MATLIB.Matrix(4, 8).setValuesRandom(1, 10);
+    MATLIB.rref( Var.M );
+
+    `);
+
+    processInput();
+});
+
+// test fraction library
+testButton2.on( "click", function()
+{
+    textInput.val(`
+
+    Var.a = new FRACLIB.Fraction(2,3);
+    Var.b = new FRACLIB.Fraction(4,5);
+    Var.c = new FRACLIB.Fraction(5);
+    Var.c.add( Var.a );
+    Var.c;
+    FRACLIB.addFractions( Var.a, Var.b );
+    FRACLIB.subFractions( Var.a, Var.b );
+    FRACLIB.multFractions( Var.a, Var.b );
+    FRACLIB.divFractions( Var.a, Var.b );
+    
+    Var.d = Var.a.clone();
+    Var.d.negate();
+    Var.d.invert();
+    
+    `);
+
+    processInput();
+});
+
+</script>
+
+
+<script>
+let M = new MATLIB.Matrix(2,3);
+M = new MATLIB.Matrix( [[3324, 12, 4],[2, -521, 37]] );
+M = new MATLIB.Matrix([[213,4,33],[34,99,7]]);
+// toString called during String concatenation, or in ${...}
+console.log(M + "");
+console.log(M.toString() + "\n" + "asdf");
+
+</script>
+
+
+<script>
+
+// Finally, let's apply the jQuery ui-widget font style to the document
+//   by adding the corresponding CSS class to all tags
+//   that may contain text: paragraph, div, label
+$( "p" ).addClass( "ui-widget" );
+$( "div" ).addClass( "ui-widget" );
+$( "label" ).addClass( "ui-widget" );
+
+// This code is not important.
+let currentDate = new Date();
+let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + " " + currentDate.getSeconds() + "s";
+console.log("Current time: " + currentTime);
+
+</script>
+
+</body>
+</html>
