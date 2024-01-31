@@ -15,8 +15,8 @@ FRACLIB.Fraction = class
     /**
      * Create a Fraction object.
      * @constructor
-     * @param {Integer} numerator 
-     * @param {Integer} denominator 
+     * @param {Integer} numerator the numerator of the fraction
+     * @param {Integer} denominator the denominator of the fraction
      */
     constructor(numerator=0, denominator=1)
     {
