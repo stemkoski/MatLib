@@ -101,13 +101,13 @@ input, textarea, .outputArea
 <br><br>
 <button id="runButton">Run Code</button>
 
-<button id="testButton">Test MATLIB</button>
-
 <button id="testButton2">Test FRACLIB</button>
+
+<button id="testButton">Test MATLIB</button>
 
 <p> Results </p>
 
-<div id="textOutput" class="outputArea" style="height: 600px;" value=" ">
+<div id="textOutput" class="outputArea" style="height: 400px;" value=" ">
 [results will appear here]
 </div>
 
@@ -126,8 +126,7 @@ runButton.button();
 testButton.button();
 testButton2.button();
 
-// use this namespace for declaring variables:
-var Var = {};
+// note: use var (not let) for declaring variables
 
 // TODO: store results of previous inputs and outputs
 // var In = {};
@@ -167,7 +166,13 @@ function processInput()
                 <div style="height:8px"></div> ` );
 
             // evaluating input may trigger an exception
-            let output = eval( input );
+            // console.log("input: " + input)
+            let output = eval.call( window, input );
+            // console.log("output: " + output)
+            
+            if ( !output )
+                output = "(no output)";
+            
             // handle newlines and spaces nicely with HTML
             output = output.toString().replaceAll("\n", "<br>");
             output = output.toString().replaceAll(" ", "&nbsp;");
@@ -200,7 +205,6 @@ function processInput()
     to.scrollTop = to.scrollHeight;
 }
 
-
 textInput.on("keydown",
     function(event)
     {
@@ -217,8 +221,8 @@ testButton.on( "click", function()
 {
     textInput.val(`
 
-    Var.M = new MATLIB.Matrix(3,4).setValuesRandom();
-    Var.A = Var.M;
+    var M = new MATLIB.Matrix(3,4).setValuesRandom();
+    var A = M;
     Var.B = Var.M.clone();   
     Var.M.setRowColumnValue(0,0,88);
     Var.A;
@@ -260,20 +264,32 @@ testButton2.on( "click", function()
 {
     textInput.val(`
 
-    Var.a = new FRACLIB.Fraction(2,3);
-    Var.b = new FRACLIB.Fraction(4,5);
-    Var.c = new FRACLIB.Fraction(5);
-    Var.c.add( Var.a );
-    Var.c;
-    FRACLIB.addFractions( Var.a, Var.b );
-    FRACLIB.subFractions( Var.a, Var.b );
-    FRACLIB.multFractions( Var.a, Var.b );
-    FRACLIB.divFractions( Var.a, Var.b );
+    var a = new FRACLIB.Fraction(2,3);
+    a;
+    var b = new FRACLIB.Fraction(4,5);
+    b;
+    FRACLIB.addFractions( a, b );
+    FRACLIB.subFractions( a, b );
+    FRACLIB.multFractions( a, b );
+    FRACLIB.divFractions( a, b );
     
-    Var.d = Var.a.clone();
-    Var.d.negate();
-    Var.d.invert();
+    var c = new FRACLIB.Fraction(5);
+    c;
+    c.add( a );
+    c;
     
+    var d = a;
+    d;
+    a.negate();
+    a;
+    d;
+
+    var e = b.clone();
+    e;
+    b.invert();
+    b;
+    e;
+
     `);
 
     processInput();
