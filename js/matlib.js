@@ -7,7 +7,11 @@ var FRACLIB = {};
 /**
  * A Fraction object represents a rational number. It has an integer numerator and (nonzero) integer denominator.
  * Supported mathematical operations: addition, subtraction, multiplication, division, negation, inversion.
- * Fractions are always reduced to lowest terms.
+ * Fractions are always reduced to lowest terms. 
+ * <br><br>
+ * Mathematical functions return the Fraction being operated on to enable
+ * chained function calls. For example, if <code>x, y, z</code> are Fractions, to calculate <code>-(x + y - z)</code> one could write:
+ * <code>x.add(y).sub(z).negate();</code>
  * @class
  */
 FRACLIB.Fraction = class
