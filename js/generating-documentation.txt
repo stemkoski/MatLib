@@ -1,0 +1,25 @@
+To generate documentation with jsDoc (Windows):
+
+* Install node.js
+
+* From PowerShell: 
+
+  npm install -g jsdoc
+  jsdoc matlib.js
+  
+* if "running scripts is disabled on this system", open a PowerShell window as Admin, then:
+  
+  Set-ExecutionPolicy RemoteSigned
+  
+* For a different documentation template:
+
+  npm install -g docdash
+
+  Then, copy the installed package from
+  C:\Users\[username]\AppData\Roaming\npm\node_modules\
+  into 
+  C:\Users\[username]\AppData\Roaming\npm\node_modules\jsdoc\templates
+
+  Finally,
+  
+  jsdoc -t templates/docdash matlib.js
