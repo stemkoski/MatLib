@@ -6,7 +6,7 @@ var FRACLIB = {};
 
 /**
  * A Fraction object represents a rational number. It has an integer numerator and (nonzero) integer denominator.
- * Supported operations: addition, subtraction, multiplication, division, negation, inversion.
+ * Supported mathematical operations: addition, subtraction, multiplication, division, negation, inversion.
  * Fractions are always reduced to lowest terms.
  * @class
  */
@@ -15,6 +15,8 @@ FRACLIB.Fraction = class
     /**
      * Create a Fraction object.
      * @constructor
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);  // stores the fraction 2/3
      * @param {Integer} numerator the numerator of the fraction
      * @param {Integer} denominator the denominator of the fraction
      */
@@ -31,6 +33,15 @@ FRACLIB.Fraction = class
         this.reduce();
     }
 
+    /**
+     * Returns a representation of this object as a String in the form "n/d",
+     * where n is the numerator and d is the denominator. If the denominator equals 1,
+     * then just returns "n".
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * a.toString();  // returns "2/3"
+     * @return {String} 
+     */
     toString()
     {
         if (this.denominator == 1)
@@ -39,6 +50,15 @@ FRACLIB.Fraction = class
             return this.numerator + "/" + this.denominator;
     }
 
+    /**
+     * Copy the data from another Fraction into this Fraction.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * var b = new FRACLIB.Fraction();
+     * b.copy( a );  // variable b now stores the fraction 2/3 also
+     * @param {Fraction} otherFraction Fraction whose data will be copied into this Fraction
+     * @return {Fraction} Returns this object (to enable chained function calls)
+     */
     copy( otherFraction )
     {
         this.numerator = otherFraction.numerator;
@@ -46,20 +66,48 @@ FRACLIB.Fraction = class
         return this;
     }
 
+    /**
+     * Create a new Fraction object containing a copy of the data from this Fraction.
+     * Use the clone function instead of <code>var a = b;</code> because when working with objects, the assignment operator <code>=</code>
+     * copies the object <i>reference</i> (not the value).
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * var b = a;
+     * var c = a.clone();
+     * // at this point, variables a,b,c all store the fraction 2/3
+     * a.setValues(4, 5);
+     * // at this point, variables a,b store the fraction 4/5, while c stores the fraction 2/3
+     * @return {Fraction} Returns a new Fraction object containing a copy of the data from this Fraction.
+     */
     clone()
     {
         return new FRACLIB.Fraction().copy( this );
     }
 
+    /**
+     * Test if this Fraction is equal/equivalent to another Fraction.
+     * In general, a/b is equivalent to c/d when a * d == b * c.
+     * @example
+     * let a = new FRACLIB.Fraction(1, 2);
+     * let b = new FRACLIB.Fraction(3, 6);
+     * let c = new FRACLIB.Fraction(4, 9);
+     * a.equals(b); // returns true
+     * b.equals(c); // returns false
+     * @param {Fraction} otherFraction Another Fraction which this Fraction will be compared with.
+     * @return {Boolean} true if Fractions are equivalent, false otherwise
+     */
     equals(otherFraction)
     {
-        return (this.numerator == otherFraction.numerator) && (this.denominator == otherFraction.denominator);
+        return (this.numerator * otherFraction.denominator) == (this.denominator * otherFraction.numerator);
     }
 
     /**
-     * Set the values of the numerator and denominator of this fraction.
-     * @param {*} numerator the new numerator of this fraction
-     * @param {*} denominator the new denominator of this fraction
+     * Set the values of the numerator and denominator of this Fraction.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);  // variable a stores the fraction 2/3
+     * a.setValues(4, 5);                   // variable a now stores the fraction 4/5
+     * @param {Integer} numerator the new numerator of this Fraction
+     * @param {Integer} denominator the new denominator of this Fraction
      * @return {Fraction} Returns this object (to enable chained function calls)
      */
     setValues(numerator=0, denominator=1)
@@ -69,6 +117,18 @@ FRACLIB.Fraction = class
         return this.reduce();
     }
 
+    /**
+     * Reduces this fraction to lowest terms <i>n</i> / <i>d</i>, where <i>n</i> and <i>d</i> have no common factors.
+     * If the denominator is negative, multiplies numerator and denominator by -1.
+     * This method is automatically called after any change in values so that fractions are always in lowest terms.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 10);  // variable a stores the fraction 2/10
+     * a.reduce();                           // variable a stores the fraction 1/5
+     * var b = new FRACLIB.Fraction(1, 9);
+     * var c = new FRACLIB.Fraction(2, 9);
+     * b.add( c );                           // variable b now stores the fraction 1/3 (reduced from 3/9)
+     * @return {Fraction} Returns this object (to enable chained function calls)
+     */
     reduce()
     {
         let gcd = FRACLIB.gcd(this.numerator, this.denominator);
@@ -86,7 +146,11 @@ FRACLIB.Fraction = class
     }
 
     /**
-     * Add another fraction to this fraction.
+     * Add a fraction to this fraction.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * var b = new FRACLIB.Fraction(4, 5);
+     * a.add( b );   // variable a now stores the fraction 22/15
      * @param  {Fraction} otherFraction fraction that will be added to this fraction
      * @return {Fraction} Returns this object (to enable chained function calls)
      */
@@ -101,6 +165,15 @@ FRACLIB.Fraction = class
         return this.reduce();
     }
 
+    /**
+     * Subtract a fraction from this fraction.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * var b = new FRACLIB.Fraction(4, 5);
+     * a.sub( b );   // variable a now stores the fraction -2/15
+     * @param  {Fraction} otherFraction fraction that will be subtracted from this fraction
+     * @return {Fraction} Returns this object (to enable chained function calls)
+     */
     sub( otherFraction )
     {
         let a = this.numerator;
@@ -118,6 +191,15 @@ FRACLIB.Fraction = class
         return this.reduce();
     }
 
+    /**
+     * Multiply this fraction by another fraction.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * var b = new FRACLIB.Fraction(4, 5);
+     * a.mult( b );   // variable a now stores the fraction 8/15
+     * @param  {Fraction} otherFraction fraction that this fraction will be multiplied by
+     * @return {Fraction} Returns this object (to enable chained function calls)
+     */
     mult( otherFraction )
     {
         this.numerator *= otherFraction.numerator;
@@ -125,6 +207,15 @@ FRACLIB.Fraction = class
         return this.reduce();
     }
 
+    /**
+     * Divide this fraction by another fraction.
+     * @example
+     * var a = new FRACLIB.Fraction(2, 3);
+     * var b = new FRACLIB.Fraction(4, 5);
+     * a.div( b );   // variable a now stores the fraction 5/6
+     * @param  {Fraction} otherFraction fraction that this fraction will be divided by
+     * @return {Fraction} Returns this object (to enable chained function calls)
+     */
     div( otherFraction )
     {
         this.numerator *= otherFraction.denominator;

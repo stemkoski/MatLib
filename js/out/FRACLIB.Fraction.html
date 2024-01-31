@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a><ul class='methods'><li data-type='method'><a href="FRACLIB.Fraction.html#add">add</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#setValues">setValues</a></li></ul></li><li><a href="MATLIB.Matrix.html">Matrix</a><ul class='methods'><li data-type='method'><a href="MATLIB.Matrix.html#fill">fill</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomFrac">setValuesRandomFrac</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomInt">setValuesRandomInt</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a><ul class='methods'><li data-type='method'><a href="FRACLIB.html#.addFractions">addFractions</a></li><li data-type='method'><a href="FRACLIB.html#.divFractions">divFractions</a></li><li data-type='method'><a href="FRACLIB.html#.multFractions">multFractions</a></li><li data-type='method'><a href="FRACLIB.html#.subFractions">subFractions</a></li></ul></li><li><a href="MATLIB.html">MATLIB</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a><ul class='methods'><li data-type='method'><a href="FRACLIB.Fraction.html#add">add</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#clone">clone</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#copy">copy</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#div">div</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#equals">equals</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#mult">mult</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#reduce">reduce</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#setValues">setValues</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#sub">sub</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#toString">toString</a></li></ul></li><li><a href="MATLIB.Matrix.html">Matrix</a><ul class='methods'><li data-type='method'><a href="MATLIB.Matrix.html#fill">fill</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomFrac">setValuesRandomFrac</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomInt">setValuesRandomInt</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a><ul class='methods'><li data-type='method'><a href="FRACLIB.html#.addFractions">addFractions</a></li><li data-type='method'><a href="FRACLIB.html#.divFractions">divFractions</a></li><li data-type='method'><a href="FRACLIB.html#.multFractions">multFractions</a></li><li data-type='method'><a href="FRACLIB.html#.subFractions">subFractions</a></li></ul></li><li><a href="MATLIB.html">MATLIB</a></li></ul>
     
 </nav>
 
@@ -55,7 +55,7 @@
         
         </h2>
         
-            <div class="class-description usertext">A Fraction object represents a rational number. It has an integer numerator and (nonzero) integer denominator.Supported operations: addition, subtraction, multiplication, division, negation, inversion.Fractions are always reduced to lowest terms.</div>
+            <div class="class-description usertext">A Fraction object represents a rational number. It has an integer numerator and (nonzero) integer denominator.Supported mathematical operations: addition, subtraction, multiplication, division, negation, inversion.Fractions are always reduced to lowest terms.</div>
         
     
 </header>
@@ -129,6 +129,11 @@
 
 
 
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);  // stores the fraction 2/3</code></pre>
 
 
 
@@ -280,7 +285,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line93">line 93</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line157">line 157</a>
     </li></ul></dd>
     
 
@@ -323,6 +328,11 @@
 
 
 
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.add( b );   // variable a now stores the fraction 22/15</code></pre>
 
 
 
@@ -422,7 +432,7 @@
 
     
 
-    <h4 class="name" id="setValues"><span class="type-signature"></span>setValues<span class="signature">(numerator, denominator)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    <h4 class="name" id="clone"><span class="type-signature"></span>clone<span class="signature">()</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
 
     
 
@@ -432,13 +442,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Set the values of the numerator and denominator of this fraction.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Create a new Fraction object containing a copy of the data from this Fraction.Use the clone function instead of <code>var a = b;</code> because when working with objects, the assignment operator <code>=</code>copies the object <i>reference</i> (not the value).</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line65">line 65</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line82">line 82</a>
     </li></ul></dd>
     
 
@@ -483,6 +493,124 @@
 
 
 
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = a;var c = a.clone();// at this point, variables a,b,c all store the fraction 2/3a.setValues(4, 5);// at this point, variables a,b store the fraction 4/5, while c stores the fraction 2/3</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns a new Fraction object containing a copy of the data from this Fraction.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="copy"><span class="type-signature"></span>copy<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Copy the data from another Fraction into this Fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction();b.copy( a );  // variable b now stores the fraction 2/3 also</code></pre>
+
+
 
 
     <h5 class="h5-parameters">Parameters:</h5>
@@ -500,8 +628,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -512,13 +638,13 @@
 
         <tr>
             
-                <td class="name"><code>numerator</code></td>
+                <td class="name"><code>otherFraction</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Fraction</span>
 
 
 
@@ -528,44 +654,8 @@
             
 
             
-                <td class="default">
-                
-                    <code>0</code>
-                
-                </td>
-            
 
-            <td class="description last">the new numerator of this fraction</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>denominator</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                    <code>1</code>
-                
-                </td>
-            
-
-            <td class="description last">the new denominator of this fraction</td>
+            <td class="description last">Fraction whose data will be copied into this Fraction</td>
         </tr>
 
     
@@ -614,6 +704,1081 @@
 
 
         
+            
+
+    
+
+    <h4 class="name" id="div"><span class="type-signature"></span>div<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Divide this fraction by another fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line219">line 219</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.div( b );   // variable a now stores the fraction 5/6</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>otherFraction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fraction that this fraction will be divided by</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="equals"><span class="type-signature"></span>equals<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Test if this Fraction is equal/equivalent to another Fraction.In general, a/b is equivalent to c/d when a * d == b * c.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);let b = new FRACLIB.Fraction(3, 6);let c = new FRACLIB.Fraction(4, 9);a.equals(b); // returns trueb.equals(c); // returns false</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>otherFraction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Another Fraction which this Fraction will be compared with.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    true if Fractions are equivalent, false otherwise
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="mult"><span class="type-signature"></span>mult<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Multiply this fraction by another fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line203">line 203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.mult( b );   // variable a now stores the fraction 8/15</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>otherFraction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fraction that this fraction will be multiplied by</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="reduce"><span class="type-signature"></span>reduce<span class="signature">()</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Reduces this fraction to lowest terms <i>n</i> / <i>d</i>, where <i>n</i> and <i>d</i> have no common factors.If the denominator is negative, multiplies numerator and denominator by -1.This method is automatically called after any change in values so that fractions are always in lowest terms.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line132">line 132</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 10);  // variable a stores the fraction 2/10a.reduce();                           // variable a stores the fraction 1/5var b = new FRACLIB.Fraction(1, 9);var c = new FRACLIB.Fraction(2, 9);b.add( c );                           // variable b now stores the fraction 1/3 (reduced from 3/9)</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setValues"><span class="type-signature"></span>setValues<span class="signature">(numerator, denominator)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Set the values of the numerator and denominator of this Fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);  // variable a stores the fraction 2/3a.setValues(4, 5);                   // variable a now stores the fraction 4/5</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>numerator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last">the new numerator of this Fraction</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>denominator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last">the new denominator of this Fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="sub"><span class="type-signature"></span>sub<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Subtract another fraction from this fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line177">line 177</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.sub( b );   // variable a now stores the fraction -2/15</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>otherFraction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Fraction</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fraction that will be subtracted from this fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Returns a representation of this object as a String in the form "n/d",where n is the numerator and d is the denominator. If the denominator equals 1,then just returns "n".</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);a.toString();  // returns "2/3"</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -633,7 +1798,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 19:43:06 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 21:51:33 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
