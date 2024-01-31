@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a><ul class='methods'><li data-type='method'><a href="FRACLIB.Fraction.html#add">add</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#clone">clone</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#copy">copy</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#div">div</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#equals">equals</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#mult">mult</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#reduce">reduce</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#setValues">setValues</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#sub">sub</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#toString">toString</a></li></ul></li><li><a href="MATLIB.Matrix.html">Matrix</a><ul class='methods'><li data-type='method'><a href="MATLIB.Matrix.html#fill">fill</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomFrac">setValuesRandomFrac</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomInt">setValuesRandomInt</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a><ul class='methods'><li data-type='method'><a href="FRACLIB.html#.addFractions">addFractions</a></li><li data-type='method'><a href="FRACLIB.html#.divFractions">divFractions</a></li><li data-type='method'><a href="FRACLIB.html#.multFractions">multFractions</a></li><li data-type='method'><a href="FRACLIB.html#.subFractions">subFractions</a></li></ul></li><li><a href="MATLIB.html">MATLIB</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a><ul class='methods'><li data-type='method'><a href="FRACLIB.Fraction.html#add">add</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#clone">clone</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#copy">copy</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#div">div</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#equals">equals</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#invert">invert</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#mult">mult</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#negate">negate</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#reduce">reduce</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#setValues">setValues</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#sub">sub</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#toString">toString</a></li></ul></li><li><a href="MATLIB.Matrix.html">Matrix</a><ul class='methods'><li data-type='method'><a href="MATLIB.Matrix.html#fill">fill</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomFrac">setValuesRandomFrac</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomInt">setValuesRandomInt</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a><ul class='methods'><li data-type='method'><a href="FRACLIB.html#.addFractions">addFractions</a></li><li data-type='method'><a href="FRACLIB.html#.divFractions">divFractions</a></li><li data-type='method'><a href="FRACLIB.html#.multFractions">multFractions</a></li><li data-type='method'><a href="FRACLIB.html#.parseFrac">parseFrac</a></li><li data-type='method'><a href="FRACLIB.html#.subFractions">subFractions</a></li></ul></li><li><a href="MATLIB.html">MATLIB</a></li></ul>
     
 </nav>
 
@@ -133,7 +133,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);  // stores the fraction 2/3</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);  // stores the fraction 2/3</code></pre>
 
 
 
@@ -279,7 +279,7 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Add another fraction to this fraction.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Add a fraction to this fraction.</li></ul></dd>
     
 
     
@@ -332,7 +332,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.add( b );   // variable a now stores the fraction 22/15</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);var y = new FRACLIB.Fraction(4, 5);x.add( y );   // x now stores the fraction 22/15</code></pre>
 
 
 
@@ -442,7 +442,7 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Create a new Fraction object containing a copy of the data from this Fraction.Use the clone function instead of <code>var a = b;</code> because when working with objects, the assignment operator <code>=</code>copies the object <i>reference</i> (not the value).</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Create a new Fraction object containing a copy of the data from this Fraction.Use the clone function instead of <code>var y = x;</code> because when working with objects, the assignment operator <code>=</code>copies the object <i>reference</i>, not the value (which is usually what is intended).</li></ul></dd>
     
 
     
@@ -495,7 +495,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = a;var c = a.clone();// at this point, variables a,b,c all store the fraction 2/3a.setValues(4, 5);// at this point, variables a,b store the fraction 4/5, while c stores the fraction 2/3</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);var y = x;var z = x.clone();// at this point, the variables x, y, and z all store the fraction 2/3x.setValues(4, 5);// at this point, x and y store the fraction 4/5, while z stores the fraction 2/3</code></pre>
 
 
 
@@ -608,7 +608,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction();b.copy( a );  // variable b now stores the fraction 2/3 also</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);var y = new FRACLIB.Fraction();y.copy( x );  // y now stores the fraction 2/3 also</code></pre>
 
 
 
@@ -724,7 +724,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line219">line 219</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line226">line 226</a>
     </li></ul></dd>
     
 
@@ -771,7 +771,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.div( b );   // variable a now stores the fraction 5/6</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);var y = new FRACLIB.Fraction(4, 5);x.div( y );   // x now stores the fraction 5/6</code></pre>
 
 
 
@@ -881,7 +881,7 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Test if this Fraction is equal/equivalent to another Fraction.In general, a/b is equivalent to c/d when a * d == b * c.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Test if this Fraction is equal/equivalent to another Fraction.In general, <code>a/b</code> is equivalent to <code>c/d</code> when <code>a * d == b * c</code>.</li></ul></dd>
     
 
     
@@ -934,7 +934,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);let b = new FRACLIB.Fraction(3, 6);let c = new FRACLIB.Fraction(4, 9);a.equals(b); // returns trueb.equals(c); // returns false</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(1, 2);var y = new FRACLIB.Fraction(3, 6);var z = new FRACLIB.Fraction(4, 9);x.equals(y); // returns truey.equals(z); // returns false</code></pre>
 
 
 
@@ -1034,7 +1034,7 @@
 
     
 
-    <h4 class="name" id="mult"><span class="type-signature"></span>mult<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    <h4 class="name" id="invert"><span class="type-signature"></span>invert<span class="signature">()</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
 
     
 
@@ -1044,13 +1044,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Multiply this fraction by another fraction.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Invert this fraction.</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line203">line 203</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line240">line 240</a>
     </li></ul></dd>
     
 
@@ -1097,7 +1097,120 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.mult( b );   // variable a now stores the fraction 8/15</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);x.invert();   // x now stores the fraction 3/2</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="mult"><span class="type-signature"></span>mult<span class="signature">(otherFraction)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Multiply this fraction by another fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line210">line 210</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);var y = new FRACLIB.Fraction(4, 5);x.mult( y );   // x now stores the fraction 8/15</code></pre>
 
 
 
@@ -1150,6 +1263,119 @@
     
     </tbody>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns this object (to enable chained function calls)
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="negate"><span class="type-signature"></span>negate<span class="signature">()</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Negate this fraction.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line195">line 195</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);x.negate();   // x now stores the fraction -2/3</code></pre>
+
+
 
 
 
@@ -1260,7 +1486,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 10);  // variable a stores the fraction 2/10a.reduce();                           // variable a stores the fraction 1/5var b = new FRACLIB.Fraction(1, 9);var c = new FRACLIB.Fraction(2, 9);b.add( c );                           // variable b now stores the fraction 1/3 (reduced from 3/9)</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 10);  // x stores the fraction 2/10x.reduce();                           // x stores the fraction 1/5var y = new FRACLIB.Fraction(1, 9);var z = new FRACLIB.Fraction(2, 9);y.add( z );                           // y now stores the fraction 1/3 (automatically reduced from 3/9)</code></pre>
 
 
 
@@ -1373,7 +1599,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);  // variable a stores the fraction 2/3a.setValues(4, 5);                   // variable a now stores the fraction 4/5</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);  // x stores the fraction 2/3x.setValues(4, 5);                   // x now stores the fraction 4/5</code></pre>
 
 
 
@@ -1521,7 +1747,7 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Subtract another fraction from this fraction.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Subtract a fraction from this fraction.</li></ul></dd>
     
 
     
@@ -1574,7 +1800,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);var b = new FRACLIB.Fraction(4, 5);a.sub( b );   // variable a now stores the fraction -2/15</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);var y = new FRACLIB.Fraction(4, 5);x.sub( y );   // x now stores the fraction -2/15</code></pre>
 
 
 
@@ -1737,7 +1963,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>var a = new FRACLIB.Fraction(2, 3);a.toString();  // returns "2/3"</code></pre>
+    <pre class="prettyprint"><code>var x = new FRACLIB.Fraction(2, 3);x.toString();  // returns "2/3"</code></pre>
 
 
 
@@ -1798,7 +2024,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 21:51:33 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 22:18:48 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

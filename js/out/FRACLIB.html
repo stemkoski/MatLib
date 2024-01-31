@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a><ul class='methods'><li data-type='method'><a href="FRACLIB.Fraction.html#add">add</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#clone">clone</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#copy">copy</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#div">div</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#equals">equals</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#mult">mult</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#reduce">reduce</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#setValues">setValues</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#sub">sub</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#toString">toString</a></li></ul></li><li><a href="MATLIB.Matrix.html">Matrix</a><ul class='methods'><li data-type='method'><a href="MATLIB.Matrix.html#fill">fill</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomFrac">setValuesRandomFrac</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomInt">setValuesRandomInt</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a><ul class='methods'><li data-type='method'><a href="FRACLIB.html#.addFractions">addFractions</a></li><li data-type='method'><a href="FRACLIB.html#.divFractions">divFractions</a></li><li data-type='method'><a href="FRACLIB.html#.multFractions">multFractions</a></li><li data-type='method'><a href="FRACLIB.html#.subFractions">subFractions</a></li></ul></li><li><a href="MATLIB.html">MATLIB</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="FRACLIB.Fraction.html">Fraction</a><ul class='methods'><li data-type='method'><a href="FRACLIB.Fraction.html#add">add</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#clone">clone</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#copy">copy</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#div">div</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#equals">equals</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#invert">invert</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#mult">mult</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#negate">negate</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#reduce">reduce</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#setValues">setValues</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#sub">sub</a></li><li data-type='method'><a href="FRACLIB.Fraction.html#toString">toString</a></li></ul></li><li><a href="MATLIB.Matrix.html">Matrix</a><ul class='methods'><li data-type='method'><a href="MATLIB.Matrix.html#fill">fill</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomFrac">setValuesRandomFrac</a></li><li data-type='method'><a href="MATLIB.Matrix.html#setValuesRandomInt">setValuesRandomInt</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="FRACLIB.html">FRACLIB</a><ul class='methods'><li data-type='method'><a href="FRACLIB.html#.addFractions">addFractions</a></li><li data-type='method'><a href="FRACLIB.html#.divFractions">divFractions</a></li><li data-type='method'><a href="FRACLIB.html#.multFractions">multFractions</a></li><li data-type='method'><a href="FRACLIB.html#.parseFrac">parseFrac</a></li><li data-type='method'><a href="FRACLIB.html#.subFractions">subFractions</a></li></ul></li><li><a href="MATLIB.html">MATLIB</a></li></ul>
     
 </nav>
 
@@ -188,13 +188,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Calculate the sum of two Fraction objects.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Calculate the sum of two Fraction objects without changing the value of either.</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line249">line 249</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line263">line 263</a>
     </li></ul></dd>
     
 
@@ -241,7 +241,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);  // a equals 1/2let b = new FRACLIB.Fraction(1, 3);  // b equals 1/3let c = FRACLIB.addFractions(a, b);  // c equals 5/6</code></pre>
+    <pre class="prettyprint"><code>let x = new FRACLIB.Fraction(1, 2);  // x stores the fraction 1/2let y = new FRACLIB.Fraction(1, 3);  // y stores the fraction 1/3let z = FRACLIB.addFractions(x, y);  // z stores the fraction 5/6</code></pre>
 
 
 
@@ -375,13 +375,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Calculate the quotient of two Fraction objects.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Calculate the quotient of two Fraction objects without changing the value of either.</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line297">line 297</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line311">line 311</a>
     </li></ul></dd>
     
 
@@ -428,7 +428,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);  // a equals 1/2let b = new FRACLIB.Fraction(1, 3);  // b equals 1/3let c = FRACLIB.divFractions(a, b);  // c equals 3/2</code></pre>
+    <pre class="prettyprint"><code>let x = new FRACLIB.Fraction(1, 2);  // x stores the fraction 1/2let y = new FRACLIB.Fraction(1, 3);  // y stores the fraction 1/3let z = FRACLIB.divFractions(x, y);  // z stores the fraction 3/2</code></pre>
 
 
 
@@ -562,13 +562,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Calculate the product of two Fraction objects.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Calculate the product of two Fraction objects without changing the value of either.</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line281">line 281</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line295">line 295</a>
     </li></ul></dd>
     
 
@@ -615,7 +615,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);   // a equals 1/2let b = new FRACLIB.Fraction(1, 3);   // b equals 1/3let c = FRACLIB.multFractions(a, b);  // c equals 1/6</code></pre>
+    <pre class="prettyprint"><code>let x = new FRACLIB.Fraction(1, 2);   // x stores the fraction 1/2let y = new FRACLIB.Fraction(1, 3);   // y stores the fraction 1/3let z = FRACLIB.multFractions(x, y);  // z stores the fraction 1/6</code></pre>
 
 
 
@@ -739,7 +739,7 @@
 
     
 
-    <h4 class="name" id=".subFractions"><span class="type-signature type-signature-static">(static) </span>subFractions<span class="signature">(fractionA, fractionB)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+    <h4 class="name" id=".parseFrac"><span class="type-signature type-signature-static">(static) </span>parseFrac<span class="signature">(fracString)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
 
     
 
@@ -749,13 +749,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Calculate the difference of two Fraction objects.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Convert a String representation of a fraction to a Fraction object.</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line265">line 265</a>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line346">line 346</a>
     </li></ul></dd>
     
 
@@ -802,7 +802,166 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let a = new FRACLIB.Fraction(1, 2);  // a equals 1/2let b = new FRACLIB.Fraction(1, 3);  // b equals 1/3let c = FRACLIB.subFractions(a, b);  // c equals 1/6</code></pre>
+    <pre class="prettyprint"><code>var x = FRACLIB.parseFrac("2/3");  // x stores the fraction 2/3var y = FRACLIB.parseFrac("7");    // y stores the fraction 7/1</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fracString</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a String that represents a fraction</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Fraction</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".subFractions"><span class="type-signature type-signature-static">(static) </span>subFractions<span class="signature">(fractionA, fractionB)</span><span class="type-signature"> &rarr; {Fraction}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Calculate the difference of two Fraction objects without changing the value of either.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="matlib.js.html">matlib.js</a>, <a href="matlib.js.html#line279">line 279</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>let x = new FRACLIB.Fraction(1, 2);  // x stores the fraction 1/2let y = new FRACLIB.Fraction(1, 3);  // y stores the fraction 1/3let z = FRACLIB.subFractions(x, y);  // z stores the fraction 1/6</code></pre>
 
 
 
@@ -941,7 +1100,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 21:51:33 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jan 30 2024 22:18:48 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
